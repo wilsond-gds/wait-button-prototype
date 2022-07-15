@@ -1,0 +1,103 @@
+/* testing only */
+body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 4rem auto; font-size: 1.1875rem;}
+/* not modified */
+.govuk-button {
+    font-family: "GDS Transport Website",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.1875;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 22px;
+    padding: 8px 10px 7px;
+    border: 2px solid rgba(0,0,0,0);
+    border-radius: 0;
+    color: #fff;
+    background-color: #00703c;
+    box-shadow: 0 2px 0 #002d18;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+    -webkit-appearance: none;
+
+}
+.govuk-button:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -4px;
+    left: -2px;
+}
+
+
+@media (min-width: 40.0625em){
+.govuk-button {
+    width: auto;
+    margin-bottom: 32px;
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1;
+}
+}
+
+/* new code, creates mobile version of the button */
+
+.govuk-button {transition:all 0.5s ease;}
+
+.govuk-button.button--spinner[disabled] {background-color:#505a5f; cursor:default;}
+
+@keyframes fade-in {
+    0% { opacity:0 }
+    20% { opacity: 0 }
+    100% { opacity:1 }
+}
+  
+@keyframes rotate {
+    0% {transform:rotate(0deg) }
+    100% {transform:rotate(360deg) }
+}
+
+.govuk-button.button--spinner:after {
+  content:'';
+  border:0.2rem solid white; 
+  border-right-color: rgba(255,255,255,0.65); 
+  border-radius:50%; 
+  display:inline-block; 
+  min-height: 1rem; 
+  min-width: 1rem; 
+  position: absolute;
+  top:0.35rem;
+  left: 33%;
+  animation: fade-in 1s ease, rotate 1.2s linear infinite;  
+}
+
+/* modify the button for larger viewports */
+
+@media (min-width: 40.0625em){
+.govuk-button.button--spinner {padding-left: 2.4rem;}
+.govuk-button.button--spinner:after {
+  top:0.35rem; 
+  left:0.6rem;}
+}
+
+/* reduced motion: remove the animation */
+
+@media (prefers-reduced-motion: reduce) {
+.govuk-button {transition:none; }
+.govuk-button.button--spinner {  padding: 8px 10px 7px;}
+.govuk-button.button--spinner:after {
+animation:none;
+display:none; /* check this is OK */
+}
+
+}
