@@ -1,6 +1,8 @@
 /* testing only */
-body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 4rem auto; font-size: 1.1875rem;}
-/* not modified */
+body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 4rem auto; font-size: 1.1875rem; padding: 1rem;}
+
+/* not modified, original code */
+
 .govuk-button {
     font-family: "GDS Transport Website",arial,sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -29,6 +31,16 @@ body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 
     -webkit-appearance: none;
 
 }
+.govuk-button:active {
+    top: 2px;
+}
+
+.govuk-button:focus {
+    border-color: #ffdd00;
+    outline: 3px solid transparent;
+    box-shadow: inset 0 0 0 1px #ffdd00;
+}
+
 .govuk-button:before {
     content: "";
     display: block;
@@ -50,9 +62,9 @@ body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 
 }
 }
 
-/* new code, creates mobile version of the button */
+/* new code for button, creates mobile version of the button first */
 
-.govuk-button {transition:all 0.5s ease;}
+.govuk-button {transition:background-color 0.5s ease,border-color 0.5s ease, padding 0.5s ease;}
 
 .govuk-button.button--spinner[disabled] {background-color:#505a5f; cursor:default;}
 
