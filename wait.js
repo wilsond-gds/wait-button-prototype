@@ -4,19 +4,6 @@ function disableFormSubmit(){
 console.log('need to check what this does');
 }
 
-function addSpinnerBehaviour(){
-console.log('added')
-}
-
-function linkSpinner(){
-
-      const buttonTargets = document.querySelectorAll('.use-spinner');
-      buttonTargets.forEach(target=>addSpinnerBehaviour)
-
-}
-
-linkSpinner();
-
 function submitSpinner() {
     
     // currently assumes one form and one button
