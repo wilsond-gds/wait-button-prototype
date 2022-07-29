@@ -4,6 +4,19 @@ function disableFormSubmit(){
 console.log('need to check what this does');
 }
 
+function addSpinnerBehaviour(){
+console.log('added')
+}
+
+function linkSpinner(){
+
+      const buttonTargets = document.querySelectorAll('.use-spinner');
+      buttonTargets.forEach(target=>addSpinnerBehaviour)
+
+}
+
+linkSpinner();
+
 function submitSpinner() {
     
     // currently assumes one form and one button
@@ -14,15 +27,16 @@ function submitSpinner() {
 
       var formTarget = document.querySelector('form');
       var formButtonTarget = document.querySelector('form > button');
+      var formButtonTextTarget = document.querySelector('form > button > span');
 
       formTarget.addEventListener('submit', function (event) {
       console.log('clicked');
       event.preventDefault(); // for testing
             formButtonTarget.classList.add('button--spinner');
             formButtonTarget.setAttribute('aria-live', 'polite')
-            formButtonTarget.textContent = actionMessage;
+            formButtonTextTarget.textContent = actionMessage;
             formButtonTarget.disabled = true;
-            setInterval(()=>{formButtonTarget.textContent = "Still working…"},6000) // 6 seconds allows voice over to complete reading the text before updating the button
+            setInterval(()=>{formButtonTextTarget.textContent = "Still working…"},6000) // 6 seconds allows voice over to complete reading the text before updating the button
       })
     }
 

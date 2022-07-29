@@ -1,10 +1,16 @@
 /* testing only */
-body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 4rem auto; font-size: 1.1875rem; padding: 1rem;}
+body {
+    font-family: 'GDS Transport Website', sans-serif;
+    max-width: 65ch;
+    margin: 4rem auto;
+    font-size: 1.1875rem;
+    padding: 1rem;
+}
 
 /* not modified, original code */
 
 .govuk-button {
-    font-family: "GDS Transport Website",arial,sans-serif;
+    font-family: "GDS Transport Website", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -20,7 +26,7 @@ body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 
     margin-left: 0;
     margin-bottom: 22px;
     padding: 8px 10px 7px;
-    border: 2px solid rgba(0,0,0,0);
+    border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 0;
     color: #fff;
     background-color: #00703c;
@@ -31,6 +37,7 @@ body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 
     -webkit-appearance: none;
 
 }
+
 .govuk-button:active {
     top: 2px;
 }
@@ -52,64 +59,96 @@ body {font-family:'GDS Transport Website', sans-serif; max-width: 65ch; margin: 
 }
 
 
-@media (min-width: 40.0625em){
-.govuk-button {
-    width: auto;
-    margin-bottom: 32px;
-    font-size: 19px;
-    font-size: 1.1875rem;
-    line-height: 1;
-}
+@media (min-width: 40.0625em) {
+    .govuk-button {
+        width: auto;
+        margin-bottom: 32px;
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1;
+    }
 }
 
 /* new code for button, creates mobile version of the button first */
 
-.govuk-button {transition:background-color 0.5s ease,border-color 0.5s ease, padding 0.5s ease;}
+.govuk-button {
+    transition: background-color 0.5s ease, border-color 0.5s ease, padding 0.5s ease;
+}
 
-.govuk-button.button--spinner[disabled] {background-color:#505a5f; cursor:default;}
+.govuk-button.button--spinner[disabled] {
+    background-color: #505a5f;
+    cursor: default;
+}
 
 @keyframes fade-in {
-    0% { opacity:0 }
-    20% { opacity: 0 }
-    100% { opacity:1 }
-}
-  
-@keyframes rotate {
-    0% {transform:rotate(0deg) }
-    100% {transform:rotate(360deg) }
+    0% {
+        opacity: 0
+    }
+    20% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
 }
 
-.govuk-button.button--spinner:after {
-  content:'';
-  border:0.2rem solid white; 
-  border-right-color: rgba(255,255,255,0.65); 
-  border-radius:50%; 
-  display:inline-block; 
-  min-height: 1rem; 
-  min-width: 1rem; 
-  position: absolute;
-  top:0.35rem;
-  left: 33%;
-  animation: fade-in 1s ease, rotate 1.2s linear infinite;  
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.govuk-button.button--spinner span {
+    display: inline-block;
+    position: relative;
+    transition: width 0.2s ease;
+}
+
+.govuk-button.button--spinner span:before {
+    content: '';
+    border: 0.15rem solid rgba(255, 255, 255, 0.5);
+    border-right-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    min-height: 1rem;
+    min-width: 1rem;
+    position: absolute;
+    left: -1.76rem;
+    top: -0.12rem;
+    animation: fade-in 1s ease-out, rotate 0.75s ease-in-out infinite;
 }
 
 /* modify the button for larger viewports */
 
-@media (min-width: 40.0625em){
-.govuk-button.button--spinner {padding-left: 2.4rem;}
-.govuk-button.button--spinner:after {
-  top:0.35rem; 
-  left:0.6rem;}
+@media (min-width: 40.0625em) {
+    .govuk-button.button--spinner {
+        padding-left: 2.4rem;
+    }
+
+    .govuk-button.button--spinner:after {
+        top: 0.35rem;
+        left: 0.6rem;
+    }
 }
 
 /* reduced motion: remove the animation */
 
 @media (prefers-reduced-motion: reduce) {
-.govuk-button {transition:none; }
-.govuk-button.button--spinner {  padding: 8px 10px 7px;}
-.govuk-button.button--spinner:after {
-animation:none;
-display:none; /* check this is OK */
-}
+    .govuk-button {
+        transition: none;
+    }
+
+    .govuk-button.button--spinner {
+        padding: 8px 10px 7px;
+    }
+
+    .govuk-button.button--spinner:after {
+        animation: none;
+        display: none; /* check this is OK */
+    }
 
 }
+
